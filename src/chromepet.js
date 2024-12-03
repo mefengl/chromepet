@@ -74,6 +74,7 @@ ChromePet.prototype.stopScraping = function(err, extension) {
 
   var totalSeconds = this.timer.end();
   this.emitter.emit('end', extension, totalSeconds);
+  this.emitter.removeAllListeners();
 };
 
 

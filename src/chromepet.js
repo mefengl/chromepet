@@ -79,7 +79,7 @@ ChromePet.prototype.stopScraping = function(err, extension) {
 
 ChromePet.prototype._parseExtensionInfo = function(body) {
   var $ = cheerio.load(body);
-  var version = $('meta[itemprop="version"]').attr('content');
+  var version = $('h2:contains("Details")').closest('section').find('li div:contains("Version")').next().text();
   var interactionCount = $('meta[itemprop="interactionCount"]').attr('content');
 
   return {
